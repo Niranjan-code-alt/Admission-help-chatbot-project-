@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admission Help Chatbot</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2b2e4a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #chat-container {
+      width: 400px;
+      height: 600px;
+      background: #1f2235;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      animation: fadeInUp 1s ease;
+    }
+    #chat-header {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      padding: 15px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    #chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background: #2a2d44;
+      scroll-behavior: smooth;
+    }
+    .message {
+      margin-bottom: 15px;
+      padding: 12px 18px;
+      max-width: 75%;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      animation: slideIn 0.3s ease;
+    }
+    .user-message {
+      background: #2575fc;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+    }
+    .bot-message {
+      background: #3f4365;
+      color: #e1e1e1;
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+    }
+    #input-area {
+      display: flex;
+      padding: 10px;
+      background: #20243d;
+      border-top: 1px solid #3a3f60;
+    }
+    #user-input {
+      flex: 1;
+      padding: 10px 15px;
+      border-radius: 25px;
+      border: none;
+      font-size: 1rem;
+      background: #3a3f60;
+      color: white;
+    }
+    #send-button {
+      background: #2575fc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 10px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    #send-button:hover {
+      background: #1a56d1;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="chat-header">Admission Help Chatbot</div>
+    <div id="chat-messages"></div>
+    <form id="input-area">
+      <input type="text" id="user-input" placeholder="Ask something..." autocomplete="off" />
+      <button type="submit" id="send-button">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const chatMessages = document.getElementById("chat-messages");
+    const userInput = document.getElementById("user-input");
+    const inputForm = document.getElementById("input-area");
+
+    function appendMessage(text, sender) {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+      messageDiv.textContent = text;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    inputForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const message = userInput.value.trim();
+      if (!message) return;
+      appendMessage(message, "user");
+      userInput.value = "";
+      fetch("/get_response", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `message=${message}`,
+      })
+        .then(response => response.json())
+        .then(data => appendMessage(data.response, "bot"));
+    });
+
+    window.onload = function() {
+      appendMessage("👋 Hi! I'm your Admission Help Chatbot. Ask me anything about deadlines, courses, fees, or scholarships.", "bot");
+    };
+  </script>
+</body>
+</html>
