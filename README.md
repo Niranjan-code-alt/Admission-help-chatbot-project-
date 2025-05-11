@@ -1,3 +1,5 @@
+<img width="1470" alt="Screenshot 2025-05-07 at 10 17 41 PM" src="https://github.com/user-attachments/assets/84d6052b-2b90-4bde-9fb4-a7dcc8a2623a" />
+<img width="1470" alt="Screenshot 2025-05-07 at 10 17 02 PM" src="https://github.com/user-attachments/assets/e931e6a5-b637-4fb2-88aa-08fdaeb042bb" />
 # Admission-help-chatbot-project-
 Admission help chatbot project 
 
