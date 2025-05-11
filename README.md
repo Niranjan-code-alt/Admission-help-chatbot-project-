@@ -60,4 +60,3 @@ This is a simple bot built using HTML, CSS for frontend and Python for backend l
 
 ---
 
-Agar aap chahen to main isay PDF ya Word file format mein bhi bana ke de sakta hoon. Kya aapko us format mein chahiye?
