@@ -58,8 +58,8 @@ This is a simple bot built using HTML, CSS for frontend and Python for backend l
 
 ---
 <img width="1470" alt="Screenshot 2025-05-07 at 10 17 02 PM" src="https://github.com/user-attachments/assets/e931e6a5-b637-4fb2-88aa-08fdaeb042bb" />
+<img width="1470" alt="Screenshot 2025-05-07 at 10 17 41 PM" src="https://github.com/user-attachments/assets/84d6052b-2b90-4bde-9fb4-a7dcc8a2623a" />
 <img width="1470" alt="Screenshot 2025-05-07 at 10 19 41 PM" src="https://github.com/user-attachments/assets/aa50b2a9-d340-4415-99a2-c6d139e4d88a" />
 <img width="1470" alt="Screenshot 2025-05-07 at 10 20 52 PM" src="https://github.com/user-attachments/assets/9841e1b2-bfbe-4566-b0da-bfbf9238c9e2" />
-<img width="1470" alt="Screenshot 2025-05-07 at 10 17 41 PM" src="https://github.com/user-attachments/assets/84d6052b-2b90-4bde-9fb4-a7dcc8a2623a" />
 
 
